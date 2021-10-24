@@ -2,7 +2,7 @@
 批量实现多台服务器之间ssh免密登录 
 # 安装 # 
 脚本依赖于expect需要先安装expect  
-yum -t install expect  
+yum -y install expect  
 下载好Batch-SSH之后放到/bin/目录下并且给一个可执行权限  
 cp batch-ssh /bin/  
 chmod u+x /bin/batch-ssh  
