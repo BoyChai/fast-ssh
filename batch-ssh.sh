@@ -13,7 +13,7 @@ CheckValue(){
     #$1,$2,$3,$4,$5
     echo "batch-ssh: Link port: $port"
     echo "batch-ssh: Link timeout: $timeout s"
-    `cat $1` &> /dev/null
+    cat $1 &> /dev/null
     if [ $? -ne 0 ];then
         echo "batch-ssh: Undefined file"
         exit 1
@@ -44,7 +44,7 @@ Handle(){
 					EOF
 					)&>/dev/null
 					#测试连通性
-					timeout $timeout ssh $i echo "$i 成功"
+					timeout $timeout ssh $i echo "$i success"
 					if [ $? -ne 0 ];then
 					#确定执行是否成功
 						echo "batch-ssh: Please check whether the password of host $I is correct or whether port $o is not open"
@@ -95,7 +95,7 @@ if [[ "$#" > 0 && "$front" > 0  ]]; then
     #$1=file,$2=username,$3=password,$4=timeout，$5=port
     Handle $file $username $password $timeout $port
 elif [[ $front = 0 ]];then
-    echo "batch-ssh: expect err"
+    echo "batch-ssh: If expect is not installed, you can execute "yum install expect""
 else
     err
 fi
