@@ -13,7 +13,7 @@ while getopts ':f:u:p:o:t:' OPT; do
         p) password="$OPTARG";;
         o) port="$OPTARG";;
 	t) timeout="$OPTARG";;
-        ?) echo "batch: Please use the -f parameter to specify the file, or use -h query help.";;
+        ?) echo "fast: Please use the -f parameter to specify the file, or use -h query help.";;
     esac
 done
 #main program
@@ -44,18 +44,18 @@ if [ $file !=  0 ];then
 					timeout $timeout ssh $i echo "$i success"
 					if [ $? -ne 0 ];then
 					#Determine whether the execution is successful
-						echo "batch-ssh: Please check whether the host $i password is correct or port $o is not open"
+						echo "fast-ssh: Please check whether the host $i password is correct or port $o is not open"
 					fi
 				else
-					echo "batch-ssh: Please check whether the host $i exists"
+					echo "fast-ssh: Please check whether the host $i exists"
 				fi
 			} done
 		else
-			echo "batch-ssh: Please use the -p parameter to specify the password or -h to query help."
+			echo "fast-ssh: Please use the -p parameter to specify the password or -h to query help."
 		fi
 	else
-		echo "batch-ssh:This file was not found $file"
+		echo "fast-ssh:This file was not found $file"
 	fi
 else
-	echo "batch-ssh: Please use the -f parameter to specify the file, or use -h query help."
+	echo "fast-ssh: Please use the -f parameter to specify the file, or use -h query help."
 fi
